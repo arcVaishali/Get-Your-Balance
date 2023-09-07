@@ -1,8 +1,15 @@
 import { useEffect, useState } from 'react';
 // import Web3 from "web3";
 import './App.css';
+const Moralis = require("moralis").default;
+const { EvmChain } = require("@moralisweb3/common-evm-utils");
+require('dotenv').config();
 
-function App() {
+const runApp = async () => {
+  await Moralis.start({
+    apiKey: process.env.MORALIS_API_KEY,
+    // ...and any other configuration
+  });
   const [walletAddress, setWalletAddress] = useState("");
   // const [web3Instance, setWeb3Instance] = useState(null);
   // const [balance, setBalance] = useState('');
